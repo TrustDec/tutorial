@@ -1,5 +1,8 @@
 package com.devmgr.tutorial;
 
+
+import org.apache.juli.logging.Log;
+import org.apache.juli.logging.LogFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +12,8 @@ import java.util.*;
 @RestController
 @RequestMapping("/tvseries")
 public class TvSeriesController {
-    @GetMapping
+    private static final Log log= LogFactory.getLog(TvSeriesController.class);
+//    @GetMapping
 //    public Map<String, Object> sayHello() {
 //        Map<String, Object> result = new HashMap<>();
 //        HashMap map1 = new HashMap();
@@ -20,8 +24,12 @@ public class TvSeriesController {
 //        result.putAll(map1);
 //        return result;
 //    }
-//    @GetMapping
+
+    @GetMapping
     public List<TvSeriesDto> getAll(){
+        if (log.isTraceEnabled()){
+            log.trace("getAll();被调用了");
+        }
         List<TvSeriesDto> list = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         calendar.set(2016,Calendar.OCTOBER,2,0,0);

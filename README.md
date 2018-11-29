@@ -14,3 +14,9 @@ Nearly 69 million people have been displaced from their home due to war, persecu
 #### IntelliJ IDEA Spring boot devtools 实现热部署
 
 [click see](https://www.cnblogs.com/zxguan/p/7941711.html)
+
+#### 日志级别
+    1.DEBUG
+    2.INFO
+    3.WARN
+    4.ERROR
