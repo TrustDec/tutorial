@@ -27,3 +27,7 @@ Nearly 69 million people have been displaced from their home due to war, persecu
 
 > callback({[{"id":1,"name":"WestWorld","originRelease":"2011-09-02"},...]})
 
+`curl -H "Content-Type:application/json" -X POST --data '{"name":"西部世界","seasonCount":1,"originRelease":"2016-10-02"}' http://127.0.0.1:8080/tvseries`
+
+> callback({"id":9999,"name":"西部世界","seasonCount":1,"originRelease":"2016-10-02"})
+

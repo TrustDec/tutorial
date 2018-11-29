@@ -8,4 +8,4 @@ logging:
   file: target/app.log
   level:
     ROOT: WARN
-    com.devmgr: WARN
+    com.devmgr: TRACE
