@@ -6,3 +6,6 @@ Nearly 69 million people have been displaced from their home due to war, persecu
 
 `http://localhost:8080/tvseries`
 
+#### IntelliJ IDEA Spring boot devtools 实现热部署
+
+[click see](https://www.cnblogs.com/zxguan/p/7941711.html)
