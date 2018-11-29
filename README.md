@@ -20,3 +20,10 @@ Nearly 69 million people have been displaced from their home due to war, persecu
     2.INFO
     3.WARN
     4.ERROR
+    
+#### 使用`curl`来测试API
+
+`curl http://127.0.0.1:8080/tvseries` 
+
+> callback({[{"id":1,"name":"WestWorld","originRelease":"2011-09-02"},...]})
+
