@@ -11,17 +11,14 @@ import java.util.Map;
 @RequestMapping("/tvseries")
 public class TvSeriesController {
     @GetMapping
-    public Map<String,Object> sayHello(){
-        Map<String,Object> result = new HashMap<>();
-        HashMap map1=new HashMap();
-        map1.put("name","张三");
-        map1.put("age",18);
-        map1.put("sex",true);
-        map1.put("message","hello,world");
+    public Map<String, Object> sayHello() {
+        Map<String, Object> result = new HashMap<>();
+        HashMap map1 = new HashMap();
+        map1.put("name", "c80d1b66e49667c4f33ed319d00c7194");
+        map1.put("age", 18);
+        map1.put("sex", 1);
+        map1.put("token", "5bab36d9959d69031c86b96c");
         result.putAll(map1);
         return result;
-
     }
-
-
 }
