@@ -53,6 +53,18 @@ public class TvSeriesController {
         }
     }
 
+    @PutMapping("/{id}")
+    public TvSeriesDto updateOne(@PathVariable int id, @RequestBody TvSeriesDto tvSeriesDto) {
+        if (log.isTraceEnabled()) {
+            log.trace("updateOne" + id);
+        }
+        if (id == 101 || id == 102) {
+            return createPoi();
+        } else {
+            throw new ResourceNotFoundException();
+        }
+    }
+
     @PostMapping
     public TvSeriesDto inserOne(@RequestBody TvSeriesDto tvSeriesDto) {
         if (log.isTraceEnabled()) {
