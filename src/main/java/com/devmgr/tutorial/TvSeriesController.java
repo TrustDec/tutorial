@@ -3,9 +3,14 @@ package com.devmgr.tutorial;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
+//import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
 import java.util.*;
 
 @RestController
@@ -63,6 +68,26 @@ public class TvSeriesController {
         } else {
             throw new ResourceNotFoundException();
         }
+    }
+
+    @PostMapping(value = "/{id}/photos", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public void addPhoto(@PathVariable int id, @RequestParam("photo") MultipartFile imgFile) throws IOException {
+        if (log.isTraceEnabled()) {
+            log.trace("接收到文件" + id + "收到文件:" + imgFile.getOriginalFilename());
+        }
+        FileOutputStream fos = new FileOutputStream("target/" + imgFile.getOriginalFilename());
+        IOUtils.copy(imgFile.getInputStream(), fos);
+        fos.close();
+    }
+
+    @GetMapping(value = "/{id}/icon", produces = MediaType.IMAGE_JPEG_VALUE)
+    public byte[] getIcon(@PathVariable int id) throws Exception {
+        if (log.isTraceEnabled()) {
+            log.trace("getIcon(" + id + ")");
+        }
+        String iconFile = "src/test/resources/wechat.png";
+        InputStream is = new FileInputStream(iconFile);
+        return IOUtils.toByteArray(is);
     }
 
     @PostMapping
