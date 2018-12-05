@@ -54,7 +54,7 @@ public class TvSeriesDto {
     }
 
     @Override
-    public String toString(){
-        return this.getClass().getName()+"{id="+id+";name="+name+"}";
+    public String toString() {
+        return this.getClass().getName() + "{id=" + id + ";name=" + name + "}";
     }
 }

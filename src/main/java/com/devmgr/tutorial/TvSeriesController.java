@@ -1,9 +1,9 @@
 package com.devmgr.tutorial;
 
 
+import net.sf.json.JSONArray;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-//import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.MediaType;
@@ -29,7 +29,6 @@ public class TvSeriesController {
         result.putAll(map1);
         return result;
     }
-
     @GetMapping()
     public List<TvSeriesDto> getAll() {
         if (log.isTraceEnabled()) {
@@ -43,7 +42,20 @@ public class TvSeriesController {
         list.add(new TvSeriesDto(1, "Person of Interest", 5, calendar.getTime()));
         return list;
     }
-
+    @GetMapping("chinaquake/{page}")
+    public String getChina(@PathVariable int page) {
+        CrawData cd = new CrawData();
+        JSONArray json = cd.crawChina();
+        String jsonString = json.toString();
+        return jsonString;
+    }
+    @GetMapping("globalquake/{page}")
+    public String getGlobal(@PathVariable int page) {
+        CrawData cd = new CrawData();
+        JSONArray json = cd.craw(page);
+        String jsonString = json.toString();
+        return jsonString;
+    }
     @GetMapping("/{id}")
     public TvSeriesDto getOne(@PathVariable int id) {
         if (log.isTraceEnabled()) {
